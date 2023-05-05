@@ -1,20 +1,37 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-
-export default function App() {
+import React from "react";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { NavigationContainer } from "@react-navigation/native";
+import { HomeScreen } from "./screens";
+import TransmissionScreen from "./screens/TransmissionScreen";
+const Stack = createNativeStackNavigator();
+const App = () => {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
+    <NavigationContainer>
+      <Stack.Navigator screenOptions={{ headerShown: false }}>
+        <Stack.Screen
+          name="Transmission Screen"
+          component={TransmissionScreen}
+        />
+        <Stack.Screen name="Home Screen" component={HomeScreen} />
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+        {/* <Stack.Screen name="Personal History" component={DressCode} />
+        <Stack.Screen name="Forgot Password" component={ForgotPassword} />
+        <Stack.Screen name="Modal" component={ModalO} />
+        <Stack.Screen name="License Agreement" component={LicenseAgreement} />
+        <Stack.Screen name="Get Started" component={GetStarted} />
+        <Stack.Screen name="Contact" component={EmergencyContact} />
+        <Stack.Screen name="Thanks" component={ThankYou} />
+        <Stack.Screen name="AddressForm" component={Address} />
+        <Stack.Screen 
+          name="ReceiptAcknowledge"
+          component={RecieptAcknowledge}
+        /> */}
+        {/* <Stack.Screen name="Onboarding Screen" component={OnboardingScreen} />
+        <Stack.Screen name="SetUp" component={SetUp} />
+        <Stack.Screen name="LogInScreen" component={LogInScreen} /> */}
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+};
+
+export default App;
