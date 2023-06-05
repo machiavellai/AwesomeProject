@@ -1,18 +1,17 @@
 import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NavigationContainer } from "@react-navigation/native";
-import { HomeScreen } from "./screens";
+import { ConnectingScreen, HomeScreen } from "./screens";
 import TransmissionScreen from "./screens/TransmissionScreen";
+import ProgileScreen from "./screens/ProfileScreen";
 const Stack = createNativeStackNavigator();
 const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={{ headerShown: false }}>
-        <Stack.Screen
-          name="Transmission Screen"
-          component={TransmissionScreen}
-        />
+        <Stack.Screen name="Transmission Screen" component={ConnectingScreen} />
         <Stack.Screen name="Home Screen" component={HomeScreen} />
+        <Stack.Screen name="Profile Screen" component={ProgileScreen} />
 
         {/* <Stack.Screen name="Personal History" component={DressCode} />
         <Stack.Screen name="Forgot Password" component={ForgotPassword} />

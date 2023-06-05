@@ -1,4 +1,5 @@
 import HomeScreen from "./homeScreen";
 import Transmission from "../screens/TransmissionScreen";
-
-export { HomeScreen, Transmission };
+import ConnectingScreen from "../screens/ConnectingScreen";
+import ProfileScreen from "../screens/ProfileScreen";
+export { HomeScreen, Transmission, ConnectingScreen, ProfileScreen };

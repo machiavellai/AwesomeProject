@@ -12,23 +12,22 @@ import { colors, images } from "../constants";
 import { MaterialIcons } from "@expo/vector-icons";
 import Ionicons from "react-native-vector-icons/Ionicons";
 
-const HomeScreen = () => {
+const HomeScreen = ({ navigation }) => {
   return (
     <SafeAreaView style={styles.SafeAreaViewContainer}>
       <View style={styles.headerContainer}>
         <TouchableOpacity>
           <MaterialIcons name="menu" size={30} style={styles.icon} />
         </TouchableOpacity>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate("Profile Screen")}>
           <Image source={images.profile_Photo} style={styles.profilePhoto} />
         </TouchableOpacity>
       </View>
       <View style={styles.welcomeBoard}>
         <Text style={styles.WelcomeTxt}>
-          Welcome back,<Text style={styles.WelcomeTxtz}>Victor</Text>{" "}
+          Welcome back,<Text style={styles.WelcomeTxtz}>Racheal</Text>{" "}
         </Text>
       </View>
-
       <View style={styles.cardContainer}>
         <View style={styles.card1}>
           <View style={styles.card1InnercircleContainer}>
@@ -339,7 +338,6 @@ const styles = StyleSheet.create({
   },
 
   noConnection: {
-   
     marginLeft: 110,
     height: "110%",
     width: "40%",

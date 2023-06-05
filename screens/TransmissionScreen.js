@@ -11,39 +11,17 @@ import {
   Dimensions,
 } from "react-native";
 import { colors, images } from "../constants";
+import { useNavigation } from "@react-navigation/native";
+
+
 const TransmissionScreen = () => {
-  const translation = useRef(new Animated.Value(0)).current;
-  useEffect(() => {
-    Animated.timing(translation, {
-      toValue: 100,
-      duration: 5000,
-      useNativeDriver: true,
-    }).start();
-  });
+  const navigation = useNavigation();
+  
   return (
     <SafeAreaView style={styles.container}>
-      <Animated.Image
-        source={images.logo}
-        resizeMode="contain"
-        style={{
-          height: 200,
-          width: "100%",
-          maxHeight: 350,
-          opacity: translation.interpolate({
-            inputRange: [0, 100],
-            outputRange: [0, 1],
-          }),
-        }}
-      />
-      <Animated.View
-        style={{
-          marginTop: 50,
-          opacity: translation.interpolate({
-            inputRange: [0, 100],
-            outputRange: [0, 1],
-          }),
-        }}
-      ></Animated.View>
+      <View style={styles.headerContainer}>
+
+      </View>
     </SafeAreaView>
   );
 };
@@ -58,7 +36,7 @@ const styles = StyleSheet.create({
   },
   headerContainer: {
     backgroundColor: colors.neongreen,
-    height: "50%",
+    height: "40%",
     weight: "100%",
     borderRadius: 200 / 15,
   },
