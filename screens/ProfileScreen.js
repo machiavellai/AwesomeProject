@@ -36,10 +36,14 @@ const ProgileScreen = () => {
         <View style={styles.activityCard}></View>
         <View style={styles.ActivityContainer}>
           <Text style={styles.ActivityText}>Activity Per day</Text>
-          <View style={styles.sendbuttonContainer}>
+          <TouchableOpacity style={styles.sendButtonContainer}>
             <View style={styles.sendButton}>
               <Text style={styles.sendText}>Send</Text>
             </View>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.sendButtonContainer}></TouchableOpacity>
+          <View style={styles.recievButton2}>
+            <Text style={styles.recieveText}>Recieve</Text>
           </View>
         </View>
       </ScrollView>
@@ -63,7 +67,7 @@ const styles = StyleSheet.create({
   },
   Settings: {
     height: 80,
-    weight: 80,
+    width: 80,
     marginLeft: 350,
     marginTop: 40,
   },
@@ -102,7 +106,7 @@ const styles = StyleSheet.create({
 
   activityCard: {
     width: "90%",
-    height: "10%",
+    height: 200,
     marginLeft: 20,
     marginTop: 15,
     borderRadius: 19,
@@ -119,6 +123,32 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
   },
   ActivityText: {
+    fontWeight: "bold",
+    fontSize: 20,
+  },
+  sendButtonContainer: {
+    flex: 1,
+  },
+  sendButton: {
+    width: "70%",
+    height: 40,
+    marginLeft: 10,
+    backgroundColor: colors.subText,
+    borderRadius: 15,
+    alignItems: "center",
+  },
+  recievButton2: {
+    width: "23%",
+    height: "15%",
+    backgroundColor: colors.pink,
+    borderRadius: 15,
+    alignItems: "center",
+  },
+  sendText: {
+    fontWeight: "bold",
+    fontSize: 18,
+  },
+  recieveText: {
     fontWeight: "bold",
     fontSize: 18,
   },
