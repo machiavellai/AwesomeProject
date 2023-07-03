@@ -3,7 +3,8 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NavigationContainer } from "@react-navigation/native";
 import { ConnectingScreen, HomeScreen } from "./screens";
 import TransmissionScreen from "./screens/TransmissionScreen";
-import ProgileScreen from "./screens/ProfileScreen";
+import ProfileScreen from "./screens/ProfileScreen";
+import CompletionScreen from "./screens/CompletionScreen";
 const Stack = createNativeStackNavigator();
 const App = () => {
   return (
@@ -11,7 +12,8 @@ const App = () => {
       <Stack.Navigator screenOptions={{ headerShown: false }}>
         <Stack.Screen name="Transmission Screen" component={ConnectingScreen} />
         <Stack.Screen name="Home Screen" component={HomeScreen} />
-        <Stack.Screen name="Profile Screen" component={ProgileScreen} />
+        <Stack.Screen name="Profile Screen" component={ProfileScreen} />
+        <Stack.Screen name="Completion Screen" component={CompletionScreen} />
 
         {/* <Stack.Screen name="Personal History" component={DressCode} />
         <Stack.Screen name="Forgot Password" component={ForgotPassword} />

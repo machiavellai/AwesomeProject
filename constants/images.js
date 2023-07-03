@@ -8,6 +8,9 @@ const individualOne = require("../assets/images/amandaOne.jpeg");
 const individualTwo = require("../assets/images/amandaTwo.jpeg");
 const noConnection = require("../assets/images/noConnection.jpeg");
 const Settings = require("../assets/images/Settings.jpeg");
+const NoConnection = require("../assets/images/noConncetion.png");
+const Sattelite = require("../assets/images/satellite.png");
+const ManLaptop = require("../assets/images/manLaptop.png");
 export default {
   logo,
   companyPolicy,
@@ -18,4 +21,7 @@ export default {
   individualTwo,
   noConnection,
   Settings,
+  NoConnection,
+  Sattelite,
+  ManLaptop,
 };
