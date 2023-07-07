@@ -20,7 +20,7 @@ const ConnectingScreen = () => {
   const translation = useRef(new Animated.Value(0)).current;
 
   const handleAnimationFinish = () => {
-    navigation.navigate("Home Screen");
+    navigation.navigate("SignUP Screen");
   };
 
   useEffect(() => {
@@ -74,4 +74,5 @@ const styles = StyleSheet.create({
     weight: "100%",
     borderRadius: 200 / 15,
   },
+  
 });
