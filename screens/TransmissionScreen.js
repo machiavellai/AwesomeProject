@@ -18,11 +18,13 @@ const TransmissionScreen = () => {
   const navigation = useNavigation();
   
   return (
-    <SafeAreaView style={styles.container}>
-      <View style={styles.headerContainer}>
-
-      </View>
-    </SafeAreaView>
+    <ImageBackground
+      source={images.doodle}
+      resizeMode="cover"
+      imageStyle={{opacity: 0.2, backgroundColor: '#4385B7'}}
+      // blurRadius={30}
+      style={{flex: 1}}>        
+      </ImageBackground>
   );
 };
 

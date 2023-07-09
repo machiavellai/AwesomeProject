@@ -11,37 +11,63 @@ import {
 import { colors, images } from "../constants";
 import { MaterialIcons } from "@expo/vector-icons";
 import Ionicons from "react-native-vector-icons/Ionicons";
+import { BottomTabNavigator } from "../BottomNavigator";
 
 const HomeScreen = ({ navigation }) => {
   return (
-    <SafeAreaView style={styles.SafeAreaViewContainer}>
-      <View style={styles.headerContainer}>
-        <TouchableOpacity>
-          <MaterialIcons name="menu" size={30} style={styles.icon} />
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate("Profile Screen")}>
-          <Image source={images.profile_Photo} style={styles.profilePhoto} />
-        </TouchableOpacity>
-      </View>
-      <View style={styles.welcomeBoard}>
-        <Text style={styles.WelcomeTxt}>
-          Welcome back,<Text style={styles.WelcomeTxtz}>Racheal</Text>{" "}
-        </Text>
-      </View>
-      <View style={styles.cardContainer}>
-        <View style={styles.card1}>
-          <View style={styles.card1InnercircleContainer}>
-            <View style={styles.card1Innercircle}>
-              <View style={styles.sendContainer1}>
-                <View style={styles.sendCard1}>
-                  <MaterialIcons
-                    name="send"
-                    size={30}
-                    style={styles.sendIcon}
-                  />
-                  <View style={styles.sendbuttonContainer}>
-                    <View style={styles.sendButton}>
-                      <Text style={styles.sendText}>Send</Text>
+    <BottomTabNavigator>
+      <SafeAreaView style={styles.SafeAreaViewContainer}>
+        <View style={styles.headerContainer}>
+          <TouchableOpacity>
+            <MaterialIcons na      me="menu" size={30} style={styles.icon} />
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => navigation.navigate("Profile Screen")}
+          >
+            <Image source={images.profile_Photo} style={styles.profilePhoto} />
+          </TouchableOpacity>
+        </View>
+        <View style={styles.welcomeBoard}>
+          <Text style={styles.WelcomeTxt}>
+            Welcome back,<Text style={styles.WelcomeTxtz}>Racheal</Text>{" "}
+          </Text>
+        </View>
+        <View style={styles.cardContainer}>
+          <View style={styles.card1}>
+            <View style={styles.card1InnercircleContainer}>
+              <View style={styles.card1Innercircle}>
+                <View style={styles.sendContainer1}>
+                  <View style={styles.sendCard1}>
+                    <MaterialIcons
+                      name="send"
+                      size={30}
+                      style={styles.sendIcon}
+                    />
+                    <View style={styles.sendbuttonContainer}>
+                      <View style={styles.sendButton}>
+                        <Text style={styles.sendText}>Send</Text>
+                      </View>
+                    </View>
+                  </View>
+                </View>
+              </View>
+            </View>
+          </View>
+          <View style={styles.card2}>
+            <View style={styles.card2InnercircleContainer}>
+              <View style={styles.card2Innercircle}>
+                <View style={styles.sendContainer2}>
+                  <View style={styles.sendCard2}>
+                    <Ionicons
+                      name="flash-sharp"
+                      size={30}
+                      color="#000000"
+                      style={styles.receiveIcon}
+                    />
+                    <View style={styles.sendbuttonContainer2}>
+                      <View style={styles.sendButton2}>
+                        <Text style={styles.receiveText}>Receive</Text>
+                      </View>
                     </View>
                   </View>
                 </View>
@@ -49,50 +75,29 @@ const HomeScreen = ({ navigation }) => {
             </View>
           </View>
         </View>
-        <View style={styles.card2}>
-          <View style={styles.card2InnercircleContainer}>
-            <View style={styles.card2Innercircle}>
-              <View style={styles.sendContainer2}>
-                <View style={styles.sendCard2}>
-                  <Ionicons
-                    name="flash-sharp"
-                    size={30}
-                    color="#000000"
-                    style={styles.receiveIcon}
-                  />
-                  <View style={styles.sendbuttonContainer2}>
-                    <View style={styles.sendButton2}>
-                      <Text style={styles.receiveText}>Receive</Text>
-                    </View>
-                  </View>
-                </View>
-              </View>
-            </View>
-          </View>
+        <View style={styles.activityListContainer}>
+          <Text style={styles.ActivityTxt}>Check Latest Activity</Text>
+          <Text style={styles.seeAllTxt}> see all</Text>
         </View>
-      </View>
-      <View style={styles.activityListContainer}>
-        <Text style={styles.ActivityTxt}>Check Latest Activity</Text>
-        <Text style={styles.seeAllTxt}> see all</Text>
-      </View>
-      <View style={styles.activityCard}>
-        <Image source={images.individualOne} style={styles.individualOne} />
-        <Text style={styles.activityInfo}> Received from Ashley</Text>
-        <Text style={styles.subActivityInfo}> 12 files - 2 min ago</Text>
-      </View>
-      <View style={styles.activityCard2}>
-        <Image source={images.individualTwo} style={styles.individualTwo} />
-        <Text style={styles.activityInfo}> Received from Mackey</Text>
-        <Text style={styles.subActivityInfo}> 7 files - 2 min ago</Text>
-      </View>
+        <View style={styles.activityCard}>
+          <Image source={images.individualOne} style={styles.individualOne} />
+          <Text style={styles.activityInfo}> Received from Ashley</Text>
+          <Text style={styles.subActivityInfo}> 12 files - 2 min ago</Text>
+        </View>
+        <View style={styles.activityCard2}>
+          <Image source={images.individualTwo} style={styles.individualTwo} />
+          <Text style={styles.activityInfo}> Received from Mackey</Text>
+          <Text style={styles.subActivityInfo}> 7 files - 2 min ago</Text>
+        </View>
 
-      <View style={styles.NoConnectionContainer}>
-        <Image source={images.noConnection} style={styles.noConnection} />
-      </View>
-      <View style={styles.NoconnectionBar}>
-        <Text style={styles.connectionTxt}> Connect to server </Text>
-      </View>
-    </SafeAreaView>
+        <View style={styles.NoConnectionContainer}>
+          <Image source={images.noConnection} style={styles.noConnection} />
+        </View>
+        <View style={styles.NoconnectionBar}>
+          <Text style={styles.connectionTxt}> Connect to server </Text>
+        </View>
+      </SafeAreaView>
+    </BottomTabNavigator>
   );
 };
 

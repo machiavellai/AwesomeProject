@@ -14,7 +14,7 @@ import { MaterialIcons } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
 const ProfileScreen = ({ navigation }) => {
   const pressHandler = () => {
-    navigation.navigate("Home Screen");
+    navigation.navigate("Waiting Recieve");
   };
   return (
     <SafeAreaView style={styles.container}>

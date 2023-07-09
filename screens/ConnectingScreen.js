@@ -20,7 +20,7 @@ const ConnectingScreen = () => {
   const translation = useRef(new Animated.Value(0)).current;
 
   const handleAnimationFinish = () => {
-    navigation.navigate("SignUP Screen");
+    navigation.navigate("Home Screen");
   };
 
   useEffect(() => {
@@ -32,7 +32,9 @@ const ConnectingScreen = () => {
   });
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.headerContainer}></View>
+      <View style={styles.headerContainer}>
+        
+      </View>
       <Animated.Image
         source={images.logo}
         resizeMode="cover"

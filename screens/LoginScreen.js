@@ -68,7 +68,7 @@ const LoginScreen = ({ navigation }) => {
       >
         <View style={styles.body}>
           <View>
-            <Image source={images.ManLaptop} style={styles.OnTop} />
+            <Image source={images.NoConnection} style={styles.OnTop} />
           </View>
           <Text style={styles.header}>SIGN IN</Text>
           <Text style={styles.subtitle}>

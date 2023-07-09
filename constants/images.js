@@ -11,6 +11,8 @@ const Settings = require("../assets/images/Settings.jpeg");
 const NoConnection = require("../assets/images/noConncetion.png");
 const Sattelite = require("../assets/images/satellite.png");
 const ManLaptop = require("../assets/images/manLaptop.png");
+const CloseButton = require("../assets/images/Close.png");
+const MaleUser = require("../assets/images/MaleUser.png");
 export default {
   logo,
   companyPolicy,
@@ -24,4 +26,6 @@ export default {
   NoConnection,
   Sattelite,
   ManLaptop,
+  CloseButton,
+  MaleUser,
 };
