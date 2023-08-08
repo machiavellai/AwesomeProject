@@ -7,7 +7,6 @@ import ProfileScreen from "./screens/ProfileScreen";
 import CompletionScreen from "./screens/CompletionScreen";
 import SignUPScreen from "./screens/SignUPScreen";
 import LoginScreen from "./screens/LoginScreen";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import WaitingRecieevr from "./screens/WaitingRecieevr";
 const Stack = createNativeStackNavigator();
 const App = () => {
@@ -21,10 +20,6 @@ const App = () => {
         <Stack.Screen name="SignUP Screen" component={SignUPScreen} />
         <Stack.Screen name="Login Screen" component={LoginScreen} />
         <Stack.Screen name="Waiting Recieve" component={WaitingRecieevr} />
-
-        {/* <Stack.Screen name="Onboarding Screen" component={OnboardingScreen} />
-        <Stack.Screen name="SetUp" component={SetUp} />
-        <Stack.Screen name="LogInScreen" component={LogInScreen} /> */}
       </Stack.Navigator>
     </NavigationContainer>
   );

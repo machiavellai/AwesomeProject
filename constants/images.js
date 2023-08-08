@@ -13,6 +13,8 @@ const Sattelite = require("../assets/images/satellite.png");
 const ManLaptop = require("../assets/images/manLaptop.png");
 const CloseButton = require("../assets/images/Close.png");
 const MaleUser = require("../assets/images/MaleUser.png");
+const PhoneWallpaper = require("../assets/images/wallpaper.png");
+const sendIcon = require("../assets/images/logo_transparent_512x512.png")
 export default {
   logo,
   companyPolicy,
@@ -28,4 +30,6 @@ export default {
   ManLaptop,
   CloseButton,
   MaleUser,
+  PhoneWallpaper,
+  sendIcon,
 };

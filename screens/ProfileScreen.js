@@ -52,7 +52,7 @@ const ProfileScreen = ({ navigation }) => {
         </View>
         <View style={styles.activityCard}>
           <Text style={styles.activityInfo}> 184</Text>
-          <Text style={styles.activityInfo}> 14</Text>
+          <Text style={styles.activityInfo}>14</Text>
           <Text style={styles.activityInfo}> 114</Text>
           <Text style={styles.subActivityInfo}>Total </Text>
           <Text style={styles.subActivityInfo2}>Sent </Text>

@@ -18,7 +18,6 @@ const screenHeight = Dimensions.get("window").height;
 const ConnectingScreen = () => {
   const navigation = useNavigation();
   const translation = useRef(new Animated.Value(0)).current;
-
   const handleAnimationFinish = () => {
     navigation.navigate("Home Screen");
   };

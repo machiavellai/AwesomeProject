@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   View,
   Text,
@@ -11,15 +11,42 @@ import {
 import { colors, images } from "../constants";
 import { MaterialIcons } from "@expo/vector-icons";
 import Ionicons from "react-native-vector-icons/Ionicons";
-import { BottomTabNavigator } from "../BottomNavigator";
+import WebSocket from "react-native-websocket";
+// import { BottomTabNavigator } from "../BottomNavigator";
 
 const HomeScreen = ({ navigation }) => {
+  const websocketUrl = "ws://localhost:3000";
+  const [socketConnected, setSocketConnected] = useState(false);
+  const handleWebSocketConnection = () => {
+    const socket = new WebSocket(websocketUrl);
+
+    socket.onopen = () => {
+      console.log("WebSocket connection established");
+      setSocketConnected(true);
+    };
+
+    socket.onmessage = (event) => {
+      console.log("Received message from server:", event.data);
+      // Handle the received message here
+    };
+
+    socket.onclose = (event) => {
+      console.log("WebSocket connection closed:", event.code, event.reason);
+      setSocketConnected(false);
+    };
+  };
+  const sendDataToServer = (data) => {
+    if (socketConnected) {
+      socket.send(JSON.stringify(data));
+    }
+  };
+
   return (
-    <BottomTabNavigator>
-      <SafeAreaView style={styles.SafeAreaViewContainer}>
+    <SafeAreaView style={styles.SafeAreaViewContainer}>
+      <ScrollView contentContainerStyle={styles.scrollViewContent}>
         <View style={styles.headerContainer}>
           <TouchableOpacity>
-            <MaterialIcons na      me="menu" size={30} style={styles.icon} />
+            <MaterialIcons na me="menu" size={30} style={styles.icon} />
           </TouchableOpacity>
           <TouchableOpacity
             onPress={() => navigation.navigate("Profile Screen")}
@@ -33,47 +60,55 @@ const HomeScreen = ({ navigation }) => {
           </Text>
         </View>
         <View style={styles.cardContainer}>
-          <View style={styles.card1}>
-            <View style={styles.card1InnercircleContainer}>
-              <View style={styles.card1Innercircle}>
-                <View style={styles.sendContainer1}>
-                  <View style={styles.sendCard1}>
-                    <MaterialIcons
-                      name="send"
-                      size={30}
-                      style={styles.sendIcon}
-                    />
-                    <View style={styles.sendbuttonContainer}>
-                      <View style={styles.sendButton}>
-                        <Text style={styles.sendText}>Send</Text>
+          <TouchableOpacity
+            onPress={() => navigation.navigate("Waiting Recieve")}
+          >
+            <View style={styles.card1}>
+              <View style={styles.card1InnercircleContainer}>
+                <View style={styles.card1Innercircle}>
+                  <View style={styles.sendContainer1}>
+                    <View style={styles.sendCard1}>
+                      <MaterialIcons
+                        name="send"
+                        size={30}
+                        style={styles.sendIcon}
+                      />
+                      <View style={styles.sendbuttonContainer}>
+                        <View style={styles.sendButton}>
+                          <Text style={styles.sendText}>Send</Text>
+                        </View>
                       </View>
                     </View>
                   </View>
                 </View>
               </View>
             </View>
-          </View>
-          <View style={styles.card2}>
-            <View style={styles.card2InnercircleContainer}>
-              <View style={styles.card2Innercircle}>
-                <View style={styles.sendContainer2}>
-                  <View style={styles.sendCard2}>
-                    <Ionicons
-                      name="flash-sharp"
-                      size={30}
-                      color="#000000"
-                      style={styles.receiveIcon}
-                    />
-                    <View style={styles.sendbuttonContainer2}>
-                      <View style={styles.sendButton2}>
-                        <Text style={styles.receiveText}>Receive</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => navigation.navigate("Waiting Recieve")}
+          >
+            <View style={styles.card2}>
+              <View style={styles.card2InnercircleContainer}>
+                <View style={styles.card2Innercircle}>
+                  <View style={styles.sendContainer2}>
+                    <View style={styles.sendCard2}>
+                      <Ionicons
+                        name="flash-sharp"
+                        size={30}
+                        color="#000000"
+                        style={styles.receiveIcon}
+                      />
+                      <View style={styles.sendbuttonContainer2}>
+                        <View style={styles.sendButton2}>
+                          <Text style={styles.receiveText}>Receive</Text>
+                        </View>
                       </View>
                     </View>
                   </View>
                 </View>
               </View>
             </View>
-          </View>
+          </TouchableOpacity>
         </View>
         <View style={styles.activityListContainer}>
           <Text style={styles.ActivityTxt}>Check Latest Activity</Text>
@@ -93,17 +128,17 @@ const HomeScreen = ({ navigation }) => {
         <View style={styles.NoConnectionContainer}>
           <Image source={images.noConnection} style={styles.noConnection} />
         </View>
-        <View style={styles.NoconnectionBar}>
-          <Text style={styles.connectionTxt}> Connect to server </Text>
-        </View>
-      </SafeAreaView>
-    </BottomTabNavigator>
+        <TouchableOpacity
+          onPress={handleWebSocketConnection}
+        >
+          <View style={styles.NoconnectionBar}>
+            <Text style={styles.connectionTxt}> Connect to server </Text>
+          </View>
+        </TouchableOpacity>
+      </ScrollView>
+    </SafeAreaView>
   );
 };
-
-{
-  /* <ion-icon name="chevron-forward-outline"></ion-icon> */
-}
 
 export default HomeScreen;
 
@@ -112,6 +147,9 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 10,
     backgroundColor: colors.white,
+  },
+  scrollViewContent: {
+    flexGrow: 1,
   },
   headerContainer: {
     flexDirection: "row",
@@ -147,6 +185,7 @@ const styles = StyleSheet.create({
     marginLeft: 10,
   },
   cardContainer: {
+    flex: 1,
     width: "100%",
     height: "30%",
     marginTop: 30,
@@ -156,18 +195,20 @@ const styles = StyleSheet.create({
     // backgroundColor: colors.red
   },
   card1: {
-    width: "45%",
+    flex: 1,
+    width: "114%",
     height: "100%",
     backgroundColor: colors.pink,
     borderRadius: 25,
-    marginLeft: 10,
+    marginLeft: 20,
   },
   card2: {
-    width: "45%",
+    flex: 1,
+    width: "90%",
     height: "100%",
     backgroundColor: colors.neongreen,
     borderRadius: 25,
-    marginRight: 10,
+    marginRight: 60,
   },
   card1Innercircle: {
     width: 110,
@@ -348,17 +389,26 @@ const styles = StyleSheet.create({
     width: "40%",
   },
   NoconnectionBar: {
-    marginTop: 5,
+    flex: 1,
     backgroundColor: colors.lightGrey,
-    height: "5%",
-    width: "40%",
-    flexDirection: "row",
+    height: "100%",
+    width: "36%",
     borderRadius: 30,
+    justifyContent: "center",
+    alignItems: "center",
     marginLeft: 110,
+    marginTop: 20,
+    // marginTop: 5,
+    // backgroundColor: colors.lightGrey,
+    // height: "5%",
+    // width: "40%",
+    // flexDirection: "row",
+    // borderRadius: 30,
+    // marginLeft: 110,
   },
   connectionTxt: {
     fontWeight: "bold",
-    marginLeft: 12,
-    marginTop: 7,
+    marginLeft: 6,
+    marginTop: 2,
   },
 });
